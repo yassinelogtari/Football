@@ -18,4 +18,13 @@ export class FootballService {
       },
     });
   }
+
+  getCompetitionById(code: string) {
+    return this.http.get<any>(`/api/v4/competitions/${code}`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
+  
 }

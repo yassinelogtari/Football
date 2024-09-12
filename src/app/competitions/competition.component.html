@@ -4,6 +4,7 @@
     <p-card
       *ngFor="let competition of competitions"
       [style]="{ width: '200px' }"
+      (click)="onSelectCompetition(competition.code)"
     >
       <img
         [src]="competition.emblem"
