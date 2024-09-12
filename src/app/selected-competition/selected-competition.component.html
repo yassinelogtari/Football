@@ -1,10 +1,38 @@
 <div class="page-container">
-    <!-- Sidebar -->
-    <div class="sidebar" *ngIf="competition">
-      <img [src]="competition.emblem" alt="{{ competition.name }} logo" class="logo" />
+  <!-- Sidebar -->
+  <div class="sidebar" *ngIf="competition">
+    <img [src]="competition.emblem" class="logo" />
+
+    <div>
+      <div icon-text-container  (click)="showTeamsDialog()">
+        <p><img src="assets/teams.png" class="icon"  />Teams</p>
+      </div>
+      <div icon-text-container (click)="showMatchDialog()">
+        <p><img src="assets/stade.png"  class="icon"/>Matches</p>
+      </div>
+      <div icon-text-container>
+        <p><img src="assets/podium.png"  class="icon"/> Standings</p>
+      </div>
+      <div icon-text-container (click)="showScorersDialog()">
+        <p><img src="assets/but.png"  class="icon" /> Scorers</p>
+      </div>
     </div>
-    <div class="main-content">
-      <h2 class="competitionName">Welcome to the {{ competition.name }} competition!</h2>
-    </div>
+
   </div>
-  
+  <div class="main-content">
+    <h2 class="competitionName">
+      Welcome to the {{ competition.area.name }} competition!
+    </h2>
+    <img [src]="competition.area.flag" class="flagCompetion" />
+  </div>
+  <p-dialog header="Teams" [(visible)]="displayTeams" modal="modal" [style]="{'width': '50vw'}">
+    <app-teams></app-teams>
+  </p-dialog>
+
+  <p-dialog header="Matches" [(visible)]="displayMatches" modal="modal" [style]="{'width': '50vw'}">
+    <app-matches></app-matches>
+  </p-dialog>
+  <p-dialog header="Scorers" [(visible)]="displayScorers" modal="modal" [style]="{'width': '50vw'}">
+    <app-scorers></app-scorers>
+  </p-dialog>
+</div>

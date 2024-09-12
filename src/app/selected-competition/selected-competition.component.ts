@@ -8,7 +8,11 @@ import { FootballService } from '../services/football.service';
   styleUrls: ['./selected-competition.component.css'],
 })
 export class SelectedCompetitionComponent implements OnInit {
+
   competition: any;
+  displayTeams: boolean = false;
+  displayMatches:boolean=false
+  displayScorers:boolean=false
 
   constructor(
     private route: ActivatedRoute,
@@ -22,5 +26,14 @@ export class SelectedCompetitionComponent implements OnInit {
       console.log(this.competition);
     });
   }
-  
+
+  showTeamsDialog() {
+    this.displayTeams = true;
+  }
+  showScorersDialog() {
+    this.displayScorers=true
+    }
+    showMatchDialog() {
+      this.displayMatches=true
+    }
 }

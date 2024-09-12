@@ -14,6 +14,7 @@
     width: 100%;
     height: auto;
     margin-bottom: 20px;
+    margin-left: 2px;
   }
 
   .competitionName{
@@ -29,4 +30,21 @@
   h2 {
     color: #333;
   }
+
+  .flagCompetion{
+    width:20px;
+    height:20px;
+    margin-left: 400px;
+    
+  }
+  .icon-text-container {
+    display: flex;
+    align-items: center; 
+  }
   
+  .icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 5px;
+    margin-top: 20px;
+  }

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SelectedCompetitionComponent } from './selected-competition/selected-competition.component';
 import { CompetitionComponent } from './competitions/competition.component';
 
+
 const routes: Routes = [
   { path: 'competitions', component: CompetitionComponent },
   { path: 'selected-competition/:code', component: SelectedCompetitionComponent },
