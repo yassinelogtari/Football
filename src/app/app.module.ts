@@ -1,18 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { provideHttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { CompetitionComponent } from './competition/competition.component';
+
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CompetitionComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CardModule,
+    ButtonModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,16 @@
+<div class="Container">
+  <h2 class="TitreHomePage">COMPETITIONS</h2>
+  <div class="competitions">
+    <p-card
+      *ngFor="let competition of competitions"
+      [style]="{ width: '200px' }"
+    >
+      <img
+        [src]="competition.emblem"
+        alt="{{ competition.name }} logo"
+        width="150"
+        height="150"
+      />
+    </p-card>
+  </div>
+</div>
