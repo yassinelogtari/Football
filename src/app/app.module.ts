@@ -13,6 +13,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatchesComponent } from './matches/matches.component';
 import { ScorersComponent } from './scorers/scorers.component';
+import { TreeTableModule } from 'primeng/treetable';
+import { TableModule } from 'primeng/table';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import { ScorersComponent } from './scorers/scorers.component';
     CardModule,
     ButtonModule,
     DialogModule,
+    TreeTableModule,
+    TableModule
   ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
   bootstrap: [AppComponent]

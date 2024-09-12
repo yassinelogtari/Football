@@ -1,0 +1,17 @@
+.teams-container {
+    padding: 20px;
+  }
+  
+  .team-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .team-logo {
+    width: 100px;
+    height: auto;
+  }
+  

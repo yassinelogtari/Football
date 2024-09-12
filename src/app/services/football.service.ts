@@ -20,7 +20,23 @@ export class FootballService {
   }
 
   getCompetitionById(code: string) {
-    return this.http.get<any>(`/api/v4/competitions/${code}`,{
+    return this.http.get<any>(`${this.apiUrl}/${code}`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
+  
+  getTeams(code: string) {
+    return this.http.get<any>(`${this.apiUrl}/${code}/teams`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
+
+  getScorerLeague(code: string) {
+    return this.http.get<any>(`${this.apiUrl}/${code}/scorers`,{
       headers: {
         'X-Auth-Token': this.apiKey,
       },
