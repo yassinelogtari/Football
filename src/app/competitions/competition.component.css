@@ -7,11 +7,15 @@
   }
   
   .competitions {
+    margin-left: 40px;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
   }
-  
+
+  .logoCompetitions{
+    margin-left: 40px;
+  }
   .p-card {
     flex: 1 1 calc(25% - 10px);
     box-sizing: border-box;

@@ -14,5 +14,12 @@
     <img [src]="team.crest" alt="{{ team.name }} logo" class="team-logo" />
     <h3>{{ team.name }}</h3>
     <p>Coach: {{ team.coach.name }}</p>
+    <button 
+    class="team-website-btn"
+    *ngIf="team.website"
+    (click)="redirectToWebsite(team.website)">
+    Visit Website
+  </button>
+    
   </div>
 </div>

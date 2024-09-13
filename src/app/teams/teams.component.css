@@ -15,3 +15,18 @@
     height: auto;
   }
   
+  .team-website-btn {
+    margin-left: 430px;
+    background-color: #001e28;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .team-website-btn:hover {
+    background-color: #07242e;
+  }
+  
+  

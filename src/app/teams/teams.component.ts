@@ -39,4 +39,8 @@ export class TeamsComponent implements OnInit {
     const code = this.route.snapshot.paramMap.get('code')!;
     this.loadTeams(code, this.selectedSeason);
   }
+  redirectToWebsite(url: string) {
+  window.open(url, '_blank'); // Open the team's website in a new tab
+}
+
 }
