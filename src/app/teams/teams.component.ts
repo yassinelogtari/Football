@@ -5,19 +5,38 @@ import { FootballService } from '../services/football.service';
 @Component({
   selector: 'app-teams',
   templateUrl: './teams.component.html',
-  styleUrl: './teams.component.css',
+  styleUrls: ['./teams.component.css']
 })
 export class TeamsComponent implements OnInit {
-  teams: any;
-  constructor(
-    private route: ActivatedRoute,
-    private footballService: FootballService
-  ) {}
+  teams: any[] = [];
+  seasons: any[] = [];
+  selectedSeason: number = new Date().getFullYear();
+
+  constructor(private route: ActivatedRoute, private footballService: FootballService) {}
 
   ngOnInit(): void {
     const code = this.route.snapshot.paramMap.get('code')!;
-    this.footballService.getTeams(code).subscribe((data) => {
+    this.generateSeasonOptions(); // Populate seasons array
+    this.loadTeams(code, this.selectedSeason); // Load teams for the default season
+  }
+
+  // Generate an array of seasons, e.g., from 2000 to current year
+  generateSeasonOptions() {
+    const currentYear = new Date().getFullYear();
+    for (let year = currentYear; year >= 2000; year--) {
+      this.seasons.push({ label: year.toString(), value: year });
+    }
+  }
+
+  loadTeams(code: string, season: number) {
+    this.footballService.getTeams(code, season).subscribe(data => {
       this.teams = data.teams;
     });
+  }
+
+  onSeasonChange(event: any) {
+    this.selectedSeason = event.value;
+    const code = this.route.snapshot.paramMap.get('code')!;
+    this.loadTeams(code, this.selectedSeason);
   }
 }

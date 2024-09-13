@@ -1,8 +1,18 @@
+<div>
+  <p-dropdown
+    [(ngModel)]="selectedSeason"
+    [options]="seasons"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a Season"
+    (onChange)="onSeasonChange($event)">
+  </p-dropdown>
+</div>
+
 <div class="teams-container">
-    <div *ngFor="let team of teams" class="team-card">
-      <img [src]="team.crest" alt="{{ team.name }} logo" class="team-logo" />
-      <h3>{{ team.name }}</h3>
-      <p>Coach: {{ team.coach.name }}</p>
-    </div>
+  <div *ngFor="let team of teams" class="team-card">
+    <img [src]="team.crest" alt="{{ team.name }} logo" class="team-logo" />
+    <h3>{{ team.name }}</h3>
+    <p>Coach: {{ team.coach.name }}</p>
   </div>
-  
+</div>

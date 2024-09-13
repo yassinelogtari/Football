@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class FootballService {
   private apiUrl = '/api/v4/competitions';
-  private apiKey = 'f24e4fc4da494f229287ae8b2d77075b'; 
+  private apiKey = '512f6aed343748ed92105e04e7653696'; 
 
   constructor(private http: HttpClient) {}
 
@@ -27,32 +27,32 @@ export class FootballService {
     });
   }
   
-  getTeams(code: string) {
-    return this.http.get<any>(`${this.apiUrl}/${code}/teams`,{
+  getTeams(code: string,season: number) {
+    return this.http.get<any>(`${this.apiUrl}/${code}/teams?season=${season}`,{
       headers: {
         'X-Auth-Token': this.apiKey,
       },
     });
   }
 
-  getScorerLeague(code: string) {
-    return this.http.get<any>(`${this.apiUrl}/${code}/scorers`,{
+  getScorerLeague(code: string,season: number) {
+    return this.http.get<any>(`${this.apiUrl}/${code}/scorers?season=${season}`,{
       headers: {
         'X-Auth-Token': this.apiKey,
       },
     });
   }
 
-  getMatches(code:string){
-    return this.http.get<any>(`${this.apiUrl}/${code}/matches`,{
+  getMatches(code:string,season: number){
+    return this.http.get<any>(`${this.apiUrl}/${code}/matches?season=${season}`,{
       headers: {
         'X-Auth-Token': this.apiKey,
       },
     });
   }
 
-  getStandings(code:string){
-    return this.http.get<any>(`${this.apiUrl}/${code}/standings`,{
+  getStandings(code:string,season: number){
+    return this.http.get<any>(`${this.apiUrl}/${code}/standings?season=${season}`,{
       headers: {
         'X-Auth-Token': this.apiKey,
       },

@@ -1,20 +1,40 @@
-    <p-table [value]="scorers" [scrollable]="true" [tableStyle]="{'min-width':'30rem'}">
+<div>
+  <p-dropdown
+    [(ngModel)]="selectedSeason"
+    [options]="seasons"
+    optionLabel="label"
+    optionValue="value"
+    placeholder="Select a Season"
+    (onChange)="onSeasonChange($event)"
+  >
+  </p-dropdown>
+
+  <p-table
+    [value]="scorers"
+    [scrollable]="true"
+    [tableStyle]="{ 'min-width': '30rem' }"
+  >
     <ng-template pTemplate="header">
-        <tr>
-            <th>Player</th>
-            <th>Team</th>
-            <th>Appearances</th>
-            <th>Goals</th>
-        </tr>
+      <tr>
+        <th>Player</th>
+        <th>Team</th>
+        <th>Appearances</th>
+        <th>Goals</th>
+      </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData>
-        <tr>
-            <td>{{ rowData.player.name }}</td>
-            <td>
-                <img [src]="rowData.team.crest" alt="{{ rowData.team.name }} logo" class="team-logo" />
-            </td>
-            <td class="appearances">{{ rowData.playedMatches }}</td>
-            <td>{{ rowData.goals }}</td>
-        </tr>
+      <tr>
+        <td>{{ rowData.player.name }}</td>
+        <td>
+          <img
+            [src]="rowData.team.crest"
+            alt="{{ rowData.team.name }} logo"
+            class="team-logo"
+          />
+        </td>
+        <td class="appearances">{{ rowData.playedMatches }}</td>
+        <td>{{ rowData.goals }}</td>
+      </tr>
     </ng-template>
-</p-table>
+  </p-table>
+</div>
