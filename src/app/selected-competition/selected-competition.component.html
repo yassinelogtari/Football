@@ -1,7 +1,8 @@
 <div class="page-container">
   <div class="sidebar" *ngIf="competition">
-    <img [src]="competition.emblem" class="logo" />
-
+    <div class="logo-container">
+      <img [src]="competition.emblem" class="logo"/>
+    </div>
     <div>
       <div class="icon-text-container">
         <p class="textSidebar">
@@ -49,7 +50,6 @@
           </p-dropdown>
         </div>
       </div>
-      
     </div>
 
     <div>
