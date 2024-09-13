@@ -19,7 +19,7 @@ export class CompetitionComponent implements OnInit {
     });
   }
   onSelectCompetition(competitionCode: string) {
-    this.router.navigate([`/selected-competition/${competitionCode}`]);
+    this.router.navigate([`/standings/${competitionCode}`]);
   }
   
 }

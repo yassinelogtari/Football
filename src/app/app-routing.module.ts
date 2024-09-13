@@ -6,7 +6,7 @@ import { CompetitionComponent } from './competitions/competition.component';
 
 const routes: Routes = [
   { path: 'competitions', component: CompetitionComponent },
-  { path: 'selected-competition/:code', component: SelectedCompetitionComponent },
+  { path: 'standings/:code', component: SelectedCompetitionComponent },
   { path: '', redirectTo: '/competitions', pathMatch: 'full' }
 ];
 

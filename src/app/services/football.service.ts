@@ -50,5 +50,13 @@ export class FootballService {
       },
     });
   }
+
+  getStandings(code:string){
+    return this.http.get<any>(`${this.apiUrl}/${code}/standings`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
   
 }

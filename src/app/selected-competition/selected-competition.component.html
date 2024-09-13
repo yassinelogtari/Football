@@ -1,38 +1,74 @@
 <div class="page-container">
-  <!-- Sidebar -->
   <div class="sidebar" *ngIf="competition">
     <img [src]="competition.emblem" class="logo" />
 
-    <div>
-      <div icon-text-container  (click)="showTeamsDialog()">
-        <p><img src="assets/teams.png" class="icon"  />Teams</p>
+    <div >
+      <div class="icon-text-container" >
+        <p class="textSidebar"><img src="assets/podium.png" class="icon" />Standings</p>
       </div>
-      <div icon-text-container (click)="showMatchDialog()">
-        <p><img src="assets/stade.png"  class="icon"/>Matches</p>
+      <div class="icon-text-container" (click)="showTeamsDialog()">
+        <p class="textSidebar"><img src="assets/teams.png" class="icon" />Teams</p>
       </div>
-      <div icon-text-container>
-        <p><img src="assets/podium.png"  class="icon"/> Standings</p>
+      <div class="icon-text-container" (click)="showMatchDialog()">
+        <p class="textSidebar"><img src="assets/stade.png" class="icon" />Matches</p>
       </div>
-      <div icon-text-container (click)="showScorersDialog()">
-        <p><img src="assets/but.png"  class="icon" /> Scorers</p>
+      
+      <div class="icon-text-container" (click)="showScorersDialog()">
+        <p class="textSidebar"><img src="assets/but.png" class="icon" />Scorers</p>
       </div>
     </div>
-
   </div>
+
   <div class="main-content">
     <h2 class="competitionName">
       Welcome to the {{ competition.area.name }} competition!
     </h2>
     <img [src]="competition.area.flag" class="flagCompetion" />
+    
+    <div>
+      <p-table [value]="standings[0]?.table" [tableStyle]="{ 'min-width': '10rem' }" styleClass="small-table">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Team</th>
+            <th>MP</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>PTS</th>
+            <th>GF</th>
+            <th>GA</th>
+            <th>GD</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-standing>
+          <tr>
+            <td>
+              <img [src]="standing.team.crest" alt="{{standing.team.name}} Logo" style="width: 16px; height: 16px; margin-right: 4px;" />
+              <span class="team-name">{{ standing.team.name }}</span>
+            </td>
+            <td>{{ standing.playedGames }}</td>
+            <td>{{ standing.won }}</td>
+            <td>{{ standing.draw }}</td>
+            <td>{{ standing.lost }}</td>
+            <td>{{ standing.points }}</td>
+            <td>{{ standing.goalsFor }}</td>
+            <td>{{ standing.goalsAgainst }}</td>
+            <td>{{ standing.goalDifference }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
   </div>
-  <p-dialog header="Teams" [(visible)]="displayTeams" modal="modal" [style]="{'width': '50vw'}">
+
+  <p-dialog header="Teams" [(visible)]="displayTeams" modal="modal" [style]="{ 'width': '50vw' }">
     <app-teams></app-teams>
   </p-dialog>
 
-  <p-dialog header="Matches" [(visible)]="displayMatches" modal="modal" [style]="{'width': '50vw'}">
+  <p-dialog header="Matches" [(visible)]="displayMatches" modal="modal" [style]="{ 'width': '50vw' }">
     <app-matches></app-matches>
   </p-dialog>
-  <p-dialog header="Scorers" [(visible)]="displayScorers" modal="modal" [style]="{'width': '50vw'}">
+
+  <p-dialog header="Scorers" [(visible)]="displayScorers" modal="modal" [style]="{ 'width': '50vw' }">
     <app-scorers></app-scorers>
   </p-dialog>
 </div>

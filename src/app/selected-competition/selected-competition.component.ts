@@ -10,6 +10,7 @@ import { FootballService } from '../services/football.service';
 export class SelectedCompetitionComponent implements OnInit {
 
   competition: any;
+  standings:any
   displayTeams: boolean = false;
   displayMatches:boolean=false
   displayScorers:boolean=false
@@ -24,8 +25,14 @@ export class SelectedCompetitionComponent implements OnInit {
     this.footballService.getCompetitionById(code).subscribe((data) => {
       this.competition = data; 
     });
+
+    this.footballService.getStandings(code).subscribe((data) => {
+      this.standings = data.standings; 
+      console.log(this.standings)
+    });
   }
 
+  
   showTeamsDialog() {
     this.displayTeams = true;
   }

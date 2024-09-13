@@ -1,50 +1,84 @@
 .page-container {
-    display: flex;
-    min-height: 100vh;
-  }
-  
-  .sidebar {
-    width: 250px;
-    background-color: #f4f4f4;
-    padding: 20px;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  }
-  
-  .logo {
-    width: 100%;
-    height: auto;
-    margin-bottom: 20px;
-    margin-left: 2px;
-  }
+  display: flex;
+  min-height: 100vh;
+}
 
-  .competitionName{
-    margin-left: 200px;
-  }
-  
-  .main-content {
-    flex-grow: 1;
-    padding: 20px;
-    background-color: #ffffff;
-  }
-  
-  h2 {
-    color: #333;
-  }
+.sidebar {
+  width: 250px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
 
-  .flagCompetion{
-    width:20px;
-    height:20px;
-    margin-left: 400px;
-    
-  }
-  .icon-text-container {
-    display: flex;
-    align-items: center; 
-  }
-  
-  .icon {
-    width: 24px; 
-    height: 24px;
-    margin-right: 5px;
-    margin-top: 20px;
-  }
+.logo {
+  width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+  margin-left: 2px;
+}
+
+.competitionName {
+  margin-left: 200px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+h2 {
+  color: #333;
+}
+
+.flagCompetion {
+  width: 20px;
+  height: 20px;
+  margin-left: 400px;
+}
+
+.icon-text-container {
+  display: flex;
+  align-items: center;  /* Aligns items vertically in the center */
+  justify-content: start; /* Centers items horizontally */
+  cursor: pointer;
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.icon-text-container:hover {
+  background-color: #001e28;
+  color: #fff;
+}
+.textSidebar:hover {
+  color: #ffffff !important;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  margin-right: 10px; /* Add spacing between the icon and text */
+}
+
+.textSidebar {
+  font-weight: bold;
+  color: #001e28 !important;
+  transition: color 0.3s ease;
+}
+
+
+.small-table {
+  font-size: 12px;
+  width: 50%; /* Adjust table width to make it smaller */
+  margin: 0 auto;
+}
+
+.team-name {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.main-content p-table {
+  width: 100%;
+}
