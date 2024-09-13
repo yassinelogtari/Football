@@ -1,1 +1,26 @@
-<p>matches works!</p>
+<div>
+  <p>Matches</p>
+
+  <p-dropdown 
+    [(ngModel)]="selectedRound"
+    [options]="matchdays" 
+    optionLabel="label" 
+    optionValue="value"
+    placeholder="Select a Round"
+    [showClear]="true"
+    (onChange)="filterMatchesByRound()">
+  </p-dropdown>
+
+ 
+  <div *ngFor="let match of filterMatchesByRound()" class="teams-card">
+    <div class="match-card">
+      <h3>{{ match.homeTeam.name }} vs {{ match.awayTeam.name }}</h3>
+      <p><img src="assets/date.png" alt=""> Date: {{ match.utcDate | date:'short' }}</p>
+      <p *ngFor="let referee of getRefereeNames(match)"><img src="assets/ref.png" alt=""> Referees:  {{ referee }}</p>
+      <p><img src="assets/fotball.png" alt=""> Score: {{ match.score.fullTime.home }} - {{ match.score.fullTime.away }}</p>
+      <img [src]="match.homeTeam.crest" alt="Home Team Crest" width="50" class="match-card-details" />
+      <img [src]="match.awayTeam.crest" alt="Away Team Crest" width="50" />
+      
+    </div>
+  </div>
+</div>

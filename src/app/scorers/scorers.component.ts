@@ -16,9 +16,7 @@ export class ScorersComponent implements OnInit {
   ngOnInit(): void {
     const code = this.route.snapshot.paramMap.get('code')!;
     this.footballService.getScorerLeague(code).subscribe(data => {
-      console.log(data);
-      // Ensure that scorers is assigned to an array
-      this.scorers = data.scorers; // Ensure this is an array
+      this.scorers = data.scorers;
     });
   }
 }

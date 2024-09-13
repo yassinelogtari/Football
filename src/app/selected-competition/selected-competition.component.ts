@@ -23,7 +23,6 @@ export class SelectedCompetitionComponent implements OnInit {
     const code = this.route.snapshot.paramMap.get('code')!;
     this.footballService.getCompetitionById(code).subscribe((data) => {
       this.competition = data; 
-      console.log(this.competition);
     });
   }
 

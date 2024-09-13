@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { provideHttpClient } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +16,7 @@ import { MatchesComponent } from './matches/matches.component';
 import { ScorersComponent } from './scorers/scorers.component';
 import { TreeTableModule } from 'primeng/treetable';
 import { TableModule } from 'primeng/table';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,9 @@ import { TableModule } from 'primeng/table';
     TeamsComponent,
     MatchesComponent,
     ScorersComponent,
-    
-    
   ],
   imports: [
+    FormsModule,
     MatDialogModule,
     BrowserModule,
     AppRoutingModule,
@@ -35,9 +36,10 @@ import { TableModule } from 'primeng/table';
     ButtonModule,
     DialogModule,
     TreeTableModule,
-    TableModule
+    TableModule,
+    DropdownModule,
   ],
   providers: [provideHttpClient(), provideAnimationsAsync()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

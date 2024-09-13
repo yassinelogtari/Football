@@ -42,5 +42,13 @@ export class FootballService {
       },
     });
   }
+
+  getMatches(code:string){
+    return this.http.get<any>(`${this.apiUrl}/${code}/matches`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
   
 }
