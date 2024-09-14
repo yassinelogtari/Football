@@ -16,11 +16,10 @@ export class TeamsComponent implements OnInit {
 
   ngOnInit(): void {
     const code = this.route.snapshot.paramMap.get('code')!;
-    this.generateSeasonOptions(); // Populate seasons array
-    this.loadTeams(code, this.selectedSeason); // Load teams for the default season
+    this.generateSeasonOptions();
+    this.loadTeams(code, this.selectedSeason);
   }
 
-  // Generate an array of seasons, e.g., from 2000 to current year
   generateSeasonOptions() {
     const currentYear = new Date().getFullYear();
     for (let year = currentYear; year >= 2000; year--) {
@@ -40,7 +39,7 @@ export class TeamsComponent implements OnInit {
     this.loadTeams(code, this.selectedSeason);
   }
   redirectToWebsite(url: string) {
-  window.open(url, '_blank'); // Open the team's website in a new tab
+  window.open(url, '_blank');
 }
 
 }

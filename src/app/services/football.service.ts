@@ -58,5 +58,13 @@ export class FootballService {
       },
     });
   }
+
+  getMatchDay(code:string,matchday:number){
+    return this.http.get<any>(`${this.apiUrl}/${code}/matches?matchday=${matchday}`,{
+      headers: {
+        'X-Auth-Token': this.apiKey,
+      },
+    });
+  }
   
 }

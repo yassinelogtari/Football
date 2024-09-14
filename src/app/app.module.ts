@@ -17,6 +17,7 @@ import { ScorersComponent } from './scorers/scorers.component';
 import { TreeTableModule } from 'primeng/treetable';
 import { TableModule } from 'primeng/table';
 import { DropdownModule } from 'primeng/dropdown';
+import { RoundComponent } from './round/round.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { DropdownModule } from 'primeng/dropdown';
     TeamsComponent,
     MatchesComponent,
     ScorersComponent,
+    RoundComponent,
   ],
   imports: [
     FormsModule,

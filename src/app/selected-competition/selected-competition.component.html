@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="sidebar" *ngIf="competition">
     <div class="logo-container">
-      <img [src]="competition.emblem" class="logo"/>
+      <img [src]="competition.emblem" class="logo" />
     </div>
     <div>
       <div class="icon-text-container">
@@ -37,7 +37,9 @@
       <div class="currentMatchday">
         <p>Next Round:</p>
         <h4>{{ competition.currentSeason.currentMatchday }}</h4>
+        <button class="team-website-btn" (click)="showRound()">View Round</button>
       </div>
+      
       <div class="Season">
         <p>Season</p>
         <div>
@@ -119,6 +121,16 @@
     modal="modal"
     [style]="{ width: '50vw' }"
   >
+  
     <app-scorers></app-scorers>
+  </p-dialog>
+  
+  <p-dialog
+    header="Round"
+    [(visible)]="displayRound"
+    modal="modal"
+    [style]="{ width: '50vw' }"
+  >
+    <app-round></app-round>
   </p-dialog>
 </div>

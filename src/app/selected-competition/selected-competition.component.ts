@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router'; // Import Router
 import { FootballService } from '../services/football.service';
 
 @Component({
@@ -8,17 +8,20 @@ import { FootballService } from '../services/football.service';
   styleUrls: ['./selected-competition.component.css'],
 })
 export class SelectedCompetitionComponent implements OnInit {
+
   competition: any;
   standings: any;
   displayTeams: boolean = false;
   displayMatches: boolean = false;
   displayScorers: boolean = false;
+  displayRound: boolean = false;
   years: any[] = [];
-  selectedYear: number=2024;
+  selectedYear: number = 2024;
 
   constructor(
     private route: ActivatedRoute,
-    private footballService: FootballService
+    private footballService: FootballService,
+    private router: Router 
   ) {}
 
   ngOnInit(): void {
@@ -30,10 +33,8 @@ export class SelectedCompetitionComponent implements OnInit {
       this.competition = data;
     });
 
-    this.loadStandings(code, this.selectedYear); 
-
+    this.loadStandings(code, this.selectedYear);
   }
-
 
   generateYearOptions() {
     const currentYear = new Date().getFullYear();
@@ -65,5 +66,10 @@ export class SelectedCompetitionComponent implements OnInit {
   showMatchDialog() {
     this.displayMatches = true;
   }
-}
 
+  showRound() {
+    const code = this.route.snapshot.paramMap.get('code')!;
+    const matchday = this.competition.currentSeason.currentMatchday; // Get the current matchday
+    this.router.navigate(['/round', code, matchday]); // Navigate to RoundComponent and pass matchday
+  }
+}
