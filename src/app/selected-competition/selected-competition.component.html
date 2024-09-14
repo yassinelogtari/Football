@@ -1,3 +1,13 @@
+<div class="back-button">
+  <button
+    pButton
+    icon="arrow-left"
+    style="background-color: #f9fafb"
+    (click)="goBack()"
+  >
+    <img src="assets/arrow.png" alt="" />
+  </button>
+</div>
 <div class="page-container">
   <div class="sidebar" *ngIf="competition">
     <div class="logo-container">
@@ -34,11 +44,11 @@
     </h2>
     <img [src]="competition.area.flag" class="flagCompetion" />
     <div class="detailSection">
-      <div class="currentMatchday">
-        <p>Next Round:</p>
+      <div *ngIf="selectedYear === 2024" class="currentMatchday">
+        <p>Current Round:</p>
         <h4>{{ competition.currentSeason.currentMatchday }}</h4>
         <button class="team-website-btn" (click)="showRound()">View Round</button>
-      </div>
+      </div>      
       
       <div class="Season">
         <p>Season</p>

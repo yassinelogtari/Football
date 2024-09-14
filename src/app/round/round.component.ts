@@ -16,14 +16,15 @@ export class RoundComponent implements OnInit {
 
   ngOnInit() {
     const code = this.route.snapshot.paramMap.get('code')!;
-    this.matchday = +this.route.snapshot.paramMap.get('matchday')!; // Get matchday from the route
-
+    this.matchday = +this.route.snapshot.paramMap.get('matchday')!; 
     this.footballService.getMatchDay(code, this.matchday).subscribe((data) => {
       this.matches = data.matches;
+      console.log(this.matches)
     });
   }
 
   goBack(): void {
     this.location.back();
   }
+  
 }

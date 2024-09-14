@@ -13,8 +13,25 @@
     gap: 10px;
   }
 
+  .logoTitle{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  .titleCompetition{
+    color: #e2f2f6;
+    font-size: 30px;
+    font-family:monospace;
+    font-style: initial;
+  }
+
   .logoCompetitions{
     margin-left: 40px;
+    margin-right: 10px;
   }
   .p-card {
     flex: 1 1 calc(25% - 10px);

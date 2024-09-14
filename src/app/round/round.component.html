@@ -1,39 +1,57 @@
 <div class="back-button">
-    <!-- Back button with flech icon -->
-    <button pButton icon="arrow-left" style="background-color:#f9fafb ;"(click)="goBack()"> <img src="assets/arrow.png" alt=""></button>
-
+  <button
+    pButton
+    icon="arrow-left"
+    style="background-color: #f9fafb"
+    (click)="goBack()"
+  >
+    <img src="assets/arrow.png" alt="" />
+  </button>
 </div>
-<p-table [value]="matches" [tableStyle]="{ 'min-width': '10rem' }">
-    <ng-template pTemplate="header">
-      <tr>
-        <th>Match Date</th>
-        <th>Home Team</th>
-        <th style="color: #f9fafb;">...................................</th>
-        <th>Away Team</th>
-        <th>Status</th>
-      </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-match>
-      <tr>
-        <!-- Displaying Match Date in a user-friendly format -->
-        <td>{{ match.utcDate | date: 'MMM d, y, h:mm a' }}</td>
-        
-        <td>
-          <div style="display: flex; align-items: center;">
-            <img [src]="match.homeTeam.crest" alt="{{ match.homeTeam.name}} Logo" style="width: 30px; height: 30px;">
-            <span>{{ match.homeTeam.name }}</span>
-          </div>
-        </td>
-        <td>VS</td>
-        <td>
-          <div style="display: flex; align-items: center;">
-            <img [src]="match.awayTeam.crest" alt="{{ match.awayTeam.name}} Logo" style="width: 30px; height: 30px;">
-            <span>{{ match.awayTeam.name }}</span>
-          </div>
-        </td>
-        
-        <td>{{ match.status | titlecase }}</td>
-      </tr>
-    </ng-template>
-  </p-table>
-  
+<p-table [value]="matches"  [tableStyle]="{ 'min-width': '10rem' }">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Match Date</th>
+      <th>Home Team</th>
+      <th style="color: #f9fafb">...................................</th>
+      <th>Away Team</th>
+      <th>Status</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-match>
+    <tr>
+      <td>{{ match.utcDate | date : "MMM d, y, h:mm a" }}</td>
+
+      <td>
+        <div style="display: flex; align-items: center">
+          <img
+            [src]="match.homeTeam.crest"
+            alt="{{ match.homeTeam.name }} Logo"
+            style="width: 30px; height: 30px"
+          />
+          <span>{{ match.homeTeam.name }}</span>
+        </div>
+      </td>
+      <td>
+        <span class="scoreRound">{{ match.score.fullTime.home }}</span>
+        <span class="vs-separator">VS</span>
+        <span class="scoreRound">{{ match.score.fullTime.away }}</span>
+      </td>
+      
+      <td>
+        <div style="display: flex; align-items: center">
+          <img
+            [src]="match.awayTeam.crest"
+            alt="{{ match.awayTeam.name }} Logo"
+            style="width: 30px; height: 30px"
+          />
+          <span>{{ match.awayTeam.name }}</span>
+        </div>
+      </td>
+
+     <td [ngStyle]="{'color': match.status === 'FINISHED' ? 'green' : match.status === 'TIMED' ? 'red' : 'pink'}">
+        {{ match.status | titlecase }}
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
